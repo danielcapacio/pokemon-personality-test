@@ -1,7 +1,21 @@
 % defining personality values for each type
 values_type(water, [3, 3, 8, 1, 3]).
-values_type(fire, [8, 7, 2, 3, 2]).
-values_type(grass, [7, 6, 1, 2, 3]).
+values_type(steel, [8, 7, 2, 3, 2]).
+values_type(rock, [7, 6, 1, 2, 3]).
+values_type(psychic, [4, 6 ,6 ,8 ,9]).
+values_type(poison, [5, 9, 2, 4, 1]).
+values_type(normal, [5, 5, 5, 5, 5]).
+values_type(ice, [1, 9, 1, 1, 1]).
+values_type(ground, [7, 7, 5, 4,7]).
+values_type(grass, [8, 9, 9, 1, 9]).
+values_type(ghost, [1, 1, 9, 8, 9]).
+values_type(flying, [1, 2, 4, 2, 4]).
+values_type(fighting, [9, 9, 2, 4, 5]).
+values_type(fairy, [1, 9, 4, 2, 3]).
+values_type(electric, [6, 1, 4, 9, 5]).
+values_type(dragon, [1, 6, 3, 2, 4]).
+values_type(dark, [4, 3, 6, 2, 1]).
+values_type(bug, [7, 5, 2, 5, 3]).
 
 % question 
 question_label_1('You stand in front of the mirror after finishing your 5-step K-beauty morning skincare \nroutine. Hair is set, teeth brushed, and your best clothes equipped. What would you rate yourself \nout of 10 ? \n(1 = I would still be a rat, 10 = I would be a very beautiful rat)').
