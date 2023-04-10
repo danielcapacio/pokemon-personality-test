@@ -5,6 +5,9 @@ CPSC 312 Project 2: Logic Programming
 In root directory, run `swipl` then
 ```
 [gui, main].
+```
+followed by
+```
 run.
 ```
 
