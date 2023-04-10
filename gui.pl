@@ -13,7 +13,7 @@ run_gui :-
     display_header(Window, Header, Pokeball, Prof),
     display_questions(Window, Header, QuestionDialog),
     open_window(Window).
-%
+
 % open XQuartz window
 open_window(Window) :-
     send(Window, open).
