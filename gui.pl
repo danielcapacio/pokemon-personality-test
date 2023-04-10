@@ -32,7 +32,7 @@ open_window(Window) :-
 % initialize empty window object
 init_window(Window) :-
     new(Window, window("CPSC 312 Project 2: Logic Programming")), % sets window title
-    send(Window, size, size(900, 180)). % width x height; 900 x 140 (pixels)
+    send(Window, size, size(900, 180)). % width x height; 900 x 180 (pixels)
 
 % initialize application heading with text, pokeball, and professor
 init_header(Header, Pokeball, Professor) :-
