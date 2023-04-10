@@ -25,3 +25,8 @@ Some kind of GUI for:
 - What is the bottom-line?
 - Is logic programming suitable for (part-of) the task?
 - Make sure you include the evidence for your claims.
+
+### External Resource Links
+- [Convertio](https://convertio.co/png-xpm/): image conversion (specifically to .xpm format)
+- [IE](https://the-image-editor.com/image/resize): image editing (resizing mainly)
+- [XPCE](https://www.swi-prolog.org/packages/xpce/): official documentation for the SWI-Prolog native GUI library we used on frontend
