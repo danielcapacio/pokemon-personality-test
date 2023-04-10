@@ -3,6 +3,7 @@
  */
 
 :- use_module(library(pce)).
+:- consult('text.pl').
 
 % main entry point to open and start the gui
 run_gui :-
@@ -12,19 +13,7 @@ run_gui :-
     display_header(Window, Header, Pokeball, Prof),
     display_questions(Window, Header, QuestionDialog),
     open_window(Window).
-
-% question strings
-question_label_1('If you had to describe your personality in one word, what would it be?').
-question_label_2('What is a core value that you live by?').
-question_label_3('Which do you prefer? Going for a wilderness hike or staying in to read a book?').
-% TODO: maybe more questions to ask user?
-
-% define personality types with their corresponding images and explanations
-personality_type(fire, 'assets/images/xpm/typings/fire.xpm', 'Fire is a type of element that is often associated \nwith passion, energy, and intensity. In humans, a fiery personality \nmay manifest as being bold, confident, and assertive, with a \nstrong sense of purpose and a desire to achieve their \ngoals. Similarly, Fire-type Pokémon like Charmander and Arcanine are known \nfor their fiery personalities and fierce fighting abilities. However, just like \nin humans, a fiery personality can also be proneto impulsivity, \nimpatience, and a quick temper. It is important for both \nFire-type Pokémon and humans with a fiery personality to learn to \nmanage their emotions and channel their energy in productive ways, rather \nthan letting it lead to conflict or burnout.').
-personality_type(water, 'assets/images/xpm/typings/water.xpm', 'Water is a type of element that is often associated \nwith calmness and adaptability. In humans, a calm and adaptable \npersonality may manifest as being patient, flexible, and able to \ncope with changes and challenges. Similarly, Water-type Pokémon like Mudkip \nand Lapras are known for their tenacity and adaptability, able \nto thrive in a variety of environments and learn moves \nlike Surf and Hydro Pump to help them in battle. \nHowever, just like in humans, a calm personality can also \nbe prone to being too passive and indecisive. It is \nimportant for both Water-type Pokémon and humans to learn to \nassert themselves when necessary and not let their calm nature \nlead to inaction.').
-personality_type(grass, 'assets/images/xpm/typings/grass.xpm', 'Grass is a type of element that is often associated \nwith growth and vitality. In humans, a growth-oriented personality may \nmanifest as being curious, open-minded, and willing to learn and \nexplore new things. Similarly, Grass-type Pokémon like Treecko and Snivy \nare known for their agility and versatility, able to traverse \nthe treetops with ease and launch powerful Grass-type moves like \nBullet Seed and Leaf Blade. However, just like in humans, \na growth-oriented personality can also be prone to being too \nrestless and constantly seeking novelty. It is important for both \nGrass-type Pokémon and humans to find a balance between exploring \nnew things and being grounded in the present moment.').
-% TODO: add rest of the pure types
-
+%
 % open XQuartz window
 open_window(Window) :-
     send(Window, open).
@@ -62,15 +51,22 @@ init_questions(QuestionDialog) :-
     question_label_1(Label1), % use separate variables for question labels
     question_label_2(Label2),
     question_label_3(Label3),
-    send(QuestionDialog, append, new(Question1, text_item(Label1))),
-    send(QuestionDialog, append, new(Question2, text_item(Label2))),
-    send(QuestionDialog, append, new(Question3, text_item(Label3))),
+    question_label_4(Label4),
+    question_label_5(Label5),
+    %send(QuestionDialog, append, new(Question1, text_item(Label1))),
+    send(QuestionDialog, append, new(Question1, slider(Label1, 1, 10, 1))),
+    send(QuestionDialog, append, new(Question2, slider(Label2, 1, 10, 1))),
+    send(QuestionDialog, append, new(Question3, slider(Label3, 1, 10, 1))),
+    send(QuestionDialog, append, new(Question4, slider(Label4, 1, 10, 1))),
+    send(QuestionDialog, append, new(Question5, slider(Label5, 1, 10, 1))),
     send(QuestionDialog, append, button('Get Results',
         message(@prolog,
             get_personality_match,
             Question1?selection,
             Question2?selection,
-            Question3?selection))), % extract user's input and pass as arguments into `get_personality_match/3` predicate
+            Question3?selection,
+            Question4?selection,
+            Question5?selection))), % extract user's input and pass as arguments into `get_personality_match/3` predicate
     send(QuestionDialog, default_button, 'Get Results').
 
 % display questions dialog onto the window
@@ -80,38 +76,47 @@ display_questions(Window, Header, QuestionDialog) :-
     send(QuestionDialog, center_x, Window?center_x),
     send(QuestionDialog, open_centered).
 
+% find the difference between two lists
+sub(X, Y, Z) :- Z is X - Y.
+subtractList([], [], []).
+subtractList([X|XR], [Y|YR], [R|RR]) :-
+    sub(X, Y, R),
+    subtractList(XR, YR, RR).
+
+% find sum of list
+sum_list([], 0).
+sum_list([H|T], Sum) :-
+   sum_list(T, Rest),
+   Sum is abs(H) + Rest.
+
+findDifferenceSum(Values, Response, Sum) :-
+    subtractList(Values, Response, Difference),
+    sum_list(Difference, Sum).
+
+findType(Type, Response) :-
+    values_type(Type, Value),
+    findDifferenceSum(Value, Response, Sum),
+    \+ (values_type(OtherType, OtherValue), OtherType \= Type, findDifferenceSum(OtherValue, Response, OtherSum), OtherSum < Sum).
+
 /*
  * matches a typing based on the user inputs
  * note: this gets called each time the `Get Results` button is pressed (submits)
  */
-get_personality_match(Q1, Q2, Q3) :-
+get_personality_match(R1, R2, R3, R4, R5) :-
     new(ResponseDialog, dialog('Your match!')),
     send(ResponseDialog, gap, size(0, 20)),
     /*
      * here is the logic to determine a user's personality type
      * TODO: update logic with other queries based on input?
      */
-    (
-        (Q1 = 'honest', Q2 = 'loyalty', Q3 = 'wilderness hike') ->
-            (writeln('Fire type matched.'), display_personality_type(ResponseDialog, fire, Q1, Q2, Q3));
-        (Q1 = 'creative', Q2 = 'flexibility', Q3 = 'read a book') ->
-            (writeln('Water type matched.'), display_personality_type(ResponseDialog, water, Q1, Q2, Q3));
-        (Q1 = 'organized', Q2 = 'efficiency', Q3 = 'wilderness hike') ->
-            (writeln('Grass type matched.'), display_personality_type(ResponseDialog, grass, Q1, Q2, Q3));
-        % TODO: add more conditions here for other types
-        
-        % default response if input combos do not match any condition
-        (
-            writeln('No condition matched.'),
-            send(ResponseDialog, label('Oops!')), % change dialog title
-            send(ResponseDialog, append, new(NoMatch, text('Cannot match a typing based on your inputs. Try again.'))),
-            send(NoMatch, font, font(helvetica, bold, 20))
-        )
-    ),
+    findType(Type, [R1, R2, R3, R4, R5]),
+    write(Type),
+    writeln(' type matched.'), 
+    display_personality_type(ResponseDialog, Type),
     send(ResponseDialog, open_centered).
 
 % display the personality type image and explanation for the given type
-display_personality_type(ResponseDialog, Type, Q1, Q2, Q3) :-
+display_personality_type(ResponseDialog, Type) :-
     personality_type(Type, ImagePath, Explanation),
     new(Image, bitmap(ImagePath)),
     send(ResponseDialog, append, Image),
@@ -125,17 +130,6 @@ display_personality_type(ResponseDialog, Type, Q1, Q2, Q3) :-
     send(Line1, y, 200),
     send(Line1, x, 50),
     
-    % display the user's input
-    send(ResponseDialog, append, new(Q1Label, text('Answer to Question 1: '))),
-    send(ResponseDialog, append, new(Q1Response, text(Q1))),
-    send(ResponseDialog, append, new(Q2Label, text('Answer to Question 2: '))),
-    send(ResponseDialog, append, new(Q2Response, text(Q2))),
-    send(ResponseDialog, append, new(Q3Label, text('Answer to Question 3: '))),
-    send(ResponseDialog, append, new(Q3Response, text(Q3))),
-    send(Q1Label, right, Q1Response),
-    send(Q2Label, right, Q2Response),
-    send(Q3Label, right, Q3Response),
-
     % line separator
     send(ResponseDialog, append, new(Line2, line(0, 0, 800, 0))),
     send(Line2, y, 200),
@@ -143,3 +137,4 @@ display_personality_type(ResponseDialog, Type, Q1, Q2, Q3) :-
     
     send(ResponseDialog, append, button('OK', message(ResponseDialog, destroy))),
     send(ResponseDialog, default_button, 'OK').
+
