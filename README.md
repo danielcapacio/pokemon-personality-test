@@ -1,6 +1,13 @@
 # Pokémon Personality Test
 CPSC 312 Project 2: Logic Programming
 
+### To Run:
+In root directory, run `swipl` then
+```
+[gui, main].
+run.
+```
+
 ### What is the problem?
 The [Big Five](https://en.wikipedia.org/wiki/Big_Five_personality_traits), also known as the Five Factor Model, is a widely accepted theory of personality that describes five core dimensions: **openness**, **conscientiousness**, **extraversion**, **agreeableness**, and **neuroticism**.
 
@@ -27,6 +34,7 @@ Some kind of GUI for:
 - Make sure you include the evidence for your claims.
 
 ### External Resource Links
+- [XPCE](https://www.swi-prolog.org/packages/xpce/): official documentation for the SWI-Prolog native GUI library we used on frontend
+- [Bulbapedia](https://bulbapedia.bulbagarden.net/): for pokemon images
 - [Convertio](https://convertio.co/png-xpm/): image conversion (specifically to .xpm format)
 - [IE](https://the-image-editor.com/image/resize): image editing (resizing mainly)
-- [XPCE](https://www.swi-prolog.org/packages/xpce/): official documentation for the SWI-Prolog native GUI library we used on frontend
