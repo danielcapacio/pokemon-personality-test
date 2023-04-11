@@ -47,13 +47,13 @@ display_header(Window, Header, Pokeball, Professor) :-
 init_questions(QuestionDialog) :-
     new(QuestionDialog, dialog),
     send(QuestionDialog, gap, size(0, 50)), % sets gap size between elements
-    send(QuestionDialog, append, label('Answer the following questions:')),
+    
     question_label_1(Label1), % use separate variables for question labels
     question_label_2(Label2),
     question_label_3(Label3),
     question_label_4(Label4),
     question_label_5(Label5),
-    %send(QuestionDialog, append, new(Question1, text_item(Label1))),
+    
     send(QuestionDialog, append, new(Question1, slider(Label1, 1, 10, 1))),
     send(QuestionDialog, append, new(Question2, slider(Label2, 1, 10, 1))),
     send(QuestionDialog, append, new(Question3, slider(Label3, 1, 10, 1))),
