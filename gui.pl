@@ -34,7 +34,7 @@ init_header(Header, Pokeball, Professor) :-
 display_header(Window, Header, Pokeball, Professor) :-
     send(Window, display, Header),
     send(Header, center_x, Window?center_x),
-    send(Header, y, 20),
+    send(Header, y, 70),
     send(Window, display, Pokeball),
     % set positioning
     send(Pokeball, y, 10),
@@ -131,4 +131,3 @@ display_personality_type(ResponseDialog, Type) :-
     
     send(ResponseDialog, append, button('OK', message(ResponseDialog, destroy))),
     send(ResponseDialog, default_button, 'OK').
-
