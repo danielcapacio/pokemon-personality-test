@@ -20,7 +20,7 @@ values_type(dragon, [1, 6, 3, 2, 4]).
 values_type(dark, [4, 3, 6, 2, 1]).
 values_type(bug, [7, 5, 2, 5, 3]).
 
-% question
+% questions
 question_label_1('You stand in front of the mirror after finishing your 5-step K-beauty \nmorning skincare routine. Hair is set, teeth brushed, and your best clothes equipped.\nWhat would you rate yourself out of 10? \n(1 = I would still be a rat, 10 = I would be a very beautiful rat)').
 question_label_2('The sky thunders and lightning strikes every 5 seconds. There is a heavy rainstorm and \nthe wind feels like a tornado. You just finished shopping from Costco and arrived at your car. \nAfter unloading, do you return the shopping cart to the designated area in a parking lot 70 meters \naway? \n(1 = never, I am a horrible person, 10 = always, even if it means I get struck by lightning)').
 question_label_3('You are at McDonalds and the card machine prompts you to donate 37% of your order to \nsave children. The cashier deeply stares into your soul. How likely are you to crumble under the \npressure and donate? \n(1 = never, 37% is too much, 10 = It is for a good cause after all…)').
@@ -47,6 +47,7 @@ personality_type(rock, 'assets/images/xpm/typings/rock.xpm', 'Rock-type Pokémon
 personality_type(steel, 'assets/images/xpm/typings/steel.xpm', 'Steel-type Pokémon embody traits such as strength, resilience, and determination, \nwhich are often valued in human professionals and leaders. People \nwith these traits tend to be highly disciplined and focused, \nwith a natural talent for finding stability and balance in \ntheir lives. They are also highly resilient and enduring, able \nto weather the storms of life and emerge stronger on \nthe other side.').
 personality_type(water, 'assets/images/xpm/typings/water.xpm', 'Water is a type of element that is often associated \nwith calmness and adaptability. In humans, a calm and adaptable \npersonality may manifest as being patient, flexible, and able to \ncope with changes and challenges. Similarly, Water-type Pokémon like Mudkip \nand Lapras are known for their tenacity and adaptability, able \nto thrive in a variety of environments and learn moves \nlike Surf and Hydro Pump to help them in battle. \nHowever, just like in humans, a calm personality can also \nbe prone to being too passive and indecisive. It is \nimportant for both Water-type Pokémon and humans to learn to \nassert themselves when necessary and not let their calm nature \nlead to inaction.').
 
+% pokemon names
 personality_name(bug, 'Caterpie').
 personality_name(dark, 'Darkrai').
 personality_name(dragon, 'Dratini').
