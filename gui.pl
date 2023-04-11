@@ -46,7 +46,7 @@ display_header(Window, Header, Pokeball, Professor) :-
 % initialize questions dialog
 init_questions(QuestionDialog) :-
     new(QuestionDialog, dialog),
-    send(QuestionDialog, gap, size(0, 20)), % sets gap size between elements
+    send(QuestionDialog, gap, size(0, 50)), % sets gap size between elements
     send(QuestionDialog, append, label('Answer the following questions:')),
     question_label_1(Label1), % use separate variables for question labels
     question_label_2(Label2),
@@ -107,7 +107,6 @@ get_personality_match(R1, R2, R3, R4, R5) :-
     send(ResponseDialog, gap, size(0, 20)),
     /*
      * here is the logic to determine a user's personality type
-     * TODO: update logic with other queries based on input?
      */
     findType(Type, [R1, R2, R3, R4, R5]),
     write(Type),
@@ -124,11 +123,6 @@ display_personality_type(ResponseDialog, Type) :-
     send(Image, x, 100),
     send(ResponseDialog, append, new(ExplanationLabel, text(Explanation))),
     send(ExplanationLabel, x, 0),
-    
-    % line separator
-    send(ResponseDialog, append, new(Line1, line(0, 0, 800, 0))),
-    send(Line1, y, 200),
-    send(Line1, x, 50),
     
     % line separator
     send(ResponseDialog, append, new(Line2, line(0, 0, 800, 0))),

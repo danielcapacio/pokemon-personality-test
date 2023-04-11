@@ -1,4 +1,12 @@
-% defining personality values for each type
+/*
+ * defining personality values for each type
+ * in the order:
+ *      - extraversion
+ *      - conscientiousness
+ *      - agreeableness
+ *      - neuroticism
+ *      - openness
+ */
 values_type(water, [3, 3, 8, 1, 3]).
 values_type(steel, [8, 7, 2, 3, 2]).
 values_type(rock, [7, 6, 1, 2, 3]).
@@ -18,7 +26,7 @@ values_type(dark, [4, 3, 6, 2, 1]).
 values_type(bug, [7, 5, 2, 5, 3]).
 
 % question 
-question_label_1('You stand in front of the mirror after finishing your 5-step K-beauty morning skincare \nroutine. Hair is set, teeth brushed, and your best clothes equipped. What would you rate yourself \nout of 10 ? \n(1 = I would still be a rat, 10 = I would be a very beautiful rat)').
+question_label_1('You stand in front of the mirror after finishing your 5-step K-beauty morning skincare\n routine. Hair is set, teeth brushed, and your best clothes equipped. What would you rate yourself out of 10? \n(1 = I would still be a rat, 10 = I would be a very beautiful rat)').
 question_label_2('The sky thunders and lightning strikes every 5 seconds. There is a heavy rainstorm and \nthe wind feels like a tornado. You just finished shopping from Costco and arrived at your car. \nAfter unloading, do you return the shopping cart to the designated area in a parking lot 70 meters \naway? (1 = never, I am a horrible person, 10 = always, even if it means I get struck by lightning)').
 question_label_3('You are at McDonalds and the card machine prompts you to donate 37% of your order to \nsave children. The cashier deeply stares into your soul. How likely are you to crumble under the \npressure and donate? (1 = never, 37% is too much, 10 = It is for a good cause after all…)').
 question_label_4('You are lying in your bed at 1:00 AM trying to fall asleep. Out of nowhere, a memory \nfrom 3 years ago of you miserably failing a handshake with your friend resurfaces. How likely are \nyou to start kicking your blanket? (1 = never, past mistakes don’t affect me, 10 = always, I did \nthis tonight)').
