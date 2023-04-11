@@ -12,8 +12,8 @@ run.
 ```
 
 ### Application Images
-<img src="assets/images/application/questions.png" alt="questions alt image" width="590" />
-<img src="assets/images/application/match.png" alt="pokemon match alt image" width="400" />
+<img src="assets/images/application/questions.png" alt="questions alt image" width="600" />
+<img src="assets/images/application/match.png" alt="pokemon match alt image" width="350" />
 
 ### What is the problem?
 The [Big Five](https://en.wikipedia.org/wiki/Big_Five_personality_traits), also known as the Five Factor Model, is a widely accepted theory of personality that describes five core dimensions: **openness**, **conscientiousness**, **extraversion**, **agreeableness**, and **neuroticism**.
