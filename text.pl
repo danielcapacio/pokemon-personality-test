@@ -46,3 +46,22 @@ personality_type(psychic, 'assets/images/xpm/typings/psychic.xpm', 'Psychic-type
 personality_type(rock, 'assets/images/xpm/typings/rock.xpm', 'Rock-type Pokémon embody traits such as strength, endurance, and resilience, \nwhich are often valued in human athletes and adventurers. People \nwith these traits tend to be highly resilient and enduring, \nable to handle the challenges and obstacles of life with \nstrength and determination. They are also highly focused and disciplined, \nable to channel their energy and intention toward their goals \nwith focus and determination.').
 personality_type(steel, 'assets/images/xpm/typings/steel.xpm', 'Steel-type Pokémon embody traits such as strength, resilience, and determination, \nwhich are often valued in human professionals and leaders. People \nwith these traits tend to be highly disciplined and focused, \nwith a natural talent for finding stability and balance in \ntheir lives. They are also highly resilient and enduring, able \nto weather the storms of life and emerge stronger on \nthe other side.').
 personality_type(water, 'assets/images/xpm/typings/water.xpm', 'Water is a type of element that is often associated \nwith calmness and adaptability. In humans, a calm and adaptable \npersonality may manifest as being patient, flexible, and able to \ncope with changes and challenges. Similarly, Water-type Pokémon like Mudkip \nand Lapras are known for their tenacity and adaptability, able \nto thrive in a variety of environments and learn moves \nlike Surf and Hydro Pump to help them in battle. \nHowever, just like in humans, a calm personality can also \nbe prone to being too passive and indecisive. It is \nimportant for both Water-type Pokémon and humans to learn to \nassert themselves when necessary and not let their calm nature \nlead to inaction.').
+
+personality_name(bug, 'Caterpie').
+personality_name(dark, 'Darkrai').
+personality_name(dragon, 'Dratini').
+personality_name(electric, 'Pikachu').
+personality_name(fairy, 'Togepi').
+personality_name(fighting, 'Riolu').
+personality_name(fire, 'Charmander').
+personality_name(flying, 'Pidgey').
+personality_name(ghost, 'Misdreavus').
+personality_name(grass, 'Treecko').
+personality_name(ground, 'Cubone').
+personality_name(ice, 'Vanilluxe').
+personality_name(normal, 'Eevee').
+personality_name(poison, 'Koffing').
+personality_name(psychic, 'Mew').
+personality_name(rock, 'Regirock').
+personality_name(steel, 'Klink').
+personality_name(water, 'Mudkip').

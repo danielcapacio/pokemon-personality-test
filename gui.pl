@@ -117,12 +117,21 @@ get_personality_match(R1, R2, R3, R4, R5) :-
 % display the personality type image and explanation for the given type
 display_personality_type(ResponseDialog, Type) :-
     personality_type(Type, ImagePath, Explanation),
+    
+    % pokemon match header
+    personality_name(Type, Name),
+    format(atom(MatchedHeaderText), 'You matched with ~w!', [Name]),
+    new(MatchHeader, text(MatchedHeaderText)),
+    send(MatchHeader, font, font(helvetica, bold, 20)),
+    send(ResponseDialog, append, MatchHeader),
+    
+    % add image of the matched pokemon
     new(Image, bitmap(ImagePath)),
     send(ResponseDialog, append, Image),
-    send(Image, y, 50),
-    send(Image, x, 100),
+
+    % add the text explanation
     send(ResponseDialog, append, new(ExplanationLabel, text(Explanation))),
-    send(ExplanationLabel, x, 0),
+    send(ExplanationLabel, font, font(helvetica, roman, 15)),
     
     % line separator
     send(ResponseDialog, append, new(Line2, line(0, 0, 800, 0))),

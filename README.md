@@ -40,8 +40,8 @@ While Prolog is very useful to solve certain applications through logic, it is a
 Lastly, one of the main challenges we faced when implementing our frontend was that XPCE is not as responsive compared to other frontend approaches like web applications. For example, we had to find workarounds for proper text-wrapping, resizing, and formatting images and dialog boxes which would have been solved easier through more responsive, dynamic frameworks such as [React](https://react.dev/).
 
 ### External Resource Links
-- [XPCE](https://www.swi-prolog.org/packages/xpce/): official documentation for the SWI-Prolog native GUI library we used on frontend
-- [Bulbapedia](https://bulbapedia.bulbagarden.net/): for pokemon images
-- [Convertio](https://convertio.co/png-xpm/): image conversion (specifically to .xpm format)
-- [IE](https://the-image-editor.com/image/resize): image editing (resizing mainly)
-- [XPCE/Prolog User Manual](http://eu.swi-prolog.org/download/xpce/doc/userguide/userguide.pdf)
+- [XPCE](https://www.swi-prolog.org/packages/xpce/): official documentation for library we used on the frontend
+- [XPCE/Prolog User Manual](http://eu.swi-prolog.org/download/xpce/doc/userguide/userguide.pdf): user guide for XPCE
+- [Bulbapedia](https://bulbapedia.bulbagarden.net/): for Pokémon images
+- [Convertio](https://convertio.co/png-xpm/), [AnyConv](https://anyconv.com/png-to-xpm-converter/): image conversion (specifically to .xpm format)
+- [Image Editor](https://the-image-editor.com/image/resize): image editing (resizing mainly)
